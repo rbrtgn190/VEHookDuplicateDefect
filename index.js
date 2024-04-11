@@ -24,22 +24,45 @@ app.use(bodyParser.json());
 
 app.post("/webhook", (req, res) => {
 // Defining the name of listener after "/"
-
+console.log('-----------------------------------------------')
+  
+  // Extract query parameters from the URL
+  const { test } = req.query;
+  
+  console.log('Received Webhook Event Msg URL:', req.url)  
+  console.log("Test parameter value:", test);
+  
   console.log('Received Webhook Event Msg:', req.body) // Action on the request that will be printed out in terminal
 
-  // Parse the id from the username object
-  const usernameId = req.body.username.id;
-  console.log(`Username ID: ${usernameId}`);
+  if (test === "true") {
+    // Do something when test is true
+    console.log("This is a connection Test :-) !");
+  } else {
 
-  // Parse the id from the entity object inside the data array
-  const entityId = req.body.data[0].entity.id;
-  console.log(`Entity ID: ${entityId}`);
+    try {
+      
+      // Parse the id from the username object
+      const usernameId = req.body.username.id;
+      console.log(`Username ID: ${usernameId}`);
 
-    // Parse the name from the entity object inside the data array
-    const entityName = req.body.data[0].entity.name;
-    console.log(`Entity ID: ${entityName}`);
+      // Parse the id from the entity object inside the data array
+      const entityId = req.body.data[0].entity.id;
+      console.log(`Entity ID: ${entityId}`);
 
-  res.status(200).end('OK') // Responding when needed
+      // Parse the name from the entity object inside the data array
+      const entityName = req.body.data[0].entity.name;
+      console.log(`Entity Name: ${entityName}`);
+
+      // TODO : Call Octane to set the relationship...
+      
+
+    } catch (error) {
+      console.error(error);
+      res.status(500).end('ERROR')
+    }
+
+    res.status(200).end('OK') // Responding when needed
+  }
 })
 
 // Create an HTTPS service.
