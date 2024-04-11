@@ -51,10 +51,7 @@ server.listen(port, () => {
 });
 ```
 
-Please replace `'path/to/your/private.key'` and `'path/to/your/certificate.pem'` with the paths to your SSL certificate and private key files.
-
-Remember, you need to have a valid SSL certificate for your domain. You can obtain one from a Certificate Authority (CA), or use a tool like [Let's Encrypt](https://letsencrypt.org/) to get a free SSL certificate. If you're just testing locally, you can generate a self-signed certificate, but browsers will show a warning when accessing your site. 
-
-Also, please note that the port number might need to be changed to 443, which is the default port for HTTPS connections. However, this might require additional permissions on some systems. 
-
-This is a basic example. Depending on your needs, you might want to add more options, handle errors, etc. Always make sure to secure your key and certificate files, and to keep them updated.
+==== to generate self-signed certificate
+openssl genrsa -out private.key 2048
+openssl req -new -sha256 -key private.key -out certificate.csr
+openssl x509 -req -days 3650 -in certificate.csr -signkey private.key -out certificate.crt
