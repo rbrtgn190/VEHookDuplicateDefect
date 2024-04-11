@@ -36,13 +36,15 @@ function setDuplicateTrace(reqbody, duplicateddefect_id) {
   */
  
   // payload
-  let payload = {"linked_items2": {"data": [{"id": ${sourcedefect_id},"type": "defect"}}}
+  let payload = `{"linked_items2": {"data": [{"id": ${sourcedefect_id},"type": "defect"}}}`;
 
   //PUT {{url}}/api/shared_spaces/{{shared_space}}/workspaces/{{workspace}}/defects/{{defect_id}}
   console.log(`PUT ${url}/api/shared_spaces/${shared_space}/workspaces/${workspace}/defects/${duplicateddefect_id}`)
 
   // TODO ? Check http return code from PUT request ? 
   
+
+  throw new Error('NOTIMPLEMENTED');
 
 }
 
@@ -113,7 +115,7 @@ console.log('-----------------------------------------------')
     }
       
     //res.status(501).end('NOTIMPLEMENTED') // Error [ERR_STREAM_WRITE_AFTER_END]: write after end
-    res.status(200).end('OK') 
+   // res.status(200).end('OK') 
   }
 })
 
