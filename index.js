@@ -27,6 +27,18 @@ app.post("/webhook", (req, res) => {
 
   console.log('Received Webhook Event Msg:', req.body) // Action on the request that will be printed out in terminal
 
+  // Parse the id from the username object
+  const usernameId = req.body.username.id;
+  console.log(`Username ID: ${usernameId}`);
+
+  // Parse the id from the entity object inside the data array
+  const entityId = req.body.data[0].entity.id;
+  console.log(`Entity ID: ${entityId}`);
+
+    // Parse the name from the entity object inside the data array
+    const entityName = req.body.data[0].entity.name;
+    console.log(`Entity ID: ${entityName}`);
+
   res.status(200).end('OK') // Responding when needed
 })
 

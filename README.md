@@ -17,6 +17,6 @@ $ curl -X POST -H "Content-Type: application/json" -d '{"event":"test", "data": 
 
 
 ==== to generate self-signed certificate
-openssl genrsa -out private.key 2048
-openssl req -new -sha256 -key private.key -out certificate.csr
-openssl x509 -req -days 3650 -in certificate.csr -signkey private.key -out certificate.crt
+$ openssl genrsa -out private.key 2048
+$ openssl req -new -sha256 -key private.key -out certificate.csr
+$ openssl x509 -req -days 3650 -in certificate.csr -signkey private.key -out certificate.crt
