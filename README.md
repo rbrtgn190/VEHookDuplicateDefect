@@ -13,43 +13,8 @@ Start your server by running:
 $ node index.js
 
 use a tool like Postman or cURL to send a POST request to your webhook receiver:
-$ curl -X POST -H "Content-Type: application/json" -d '{"event":"test", "data": {"message": "Hello, World!"}}' http://localhost:3000/webhook
+$ curl -X POST -H "Content-Type: application/json" -d '{"event":"test", "data": {"message": "Hello, World!"}}' http(s)://localhost:3000/webhook
 
-================================================================================
-
-To make your Express application listen on HTTPS rather than HTTP, you need to create an HTTPS server. This requires an SSL certificate. Here's how you can modify your code:
-
-```javascript
-const express = require('express');
-const bodyParser = require('body-parser');
-const https = require('https');                     // <<<<<<<<<<<<<<<<<<<<<<
-const fs = require('fs');
-
-const app = express();
-const port = 3000;
-
-app.use(bodyParser.json());
-
-app.post("/webhook", (req, res) => {
-  console.log('Received Webhook Event Msg:', req.body)
-  res.status(200).end('OK')
-})
-
-// Read the key and certificate files.
-let key = fs.readFileSync('path/to/your/private.key');  // <<<<<<<<<<<<<<<<<<<<<<
-let cert = fs.readFileSync('path/to/your/certificate.pem');
-
-let options = {                                         // <<<<<<<<<<<<<<<<<<<<<<
-  key: key,
-  cert: cert
-};
-
-// Create an HTTPS service.
-let server = https.createServer(options, app);          // <<<<<<<<<<<<<<<<<<<<<<
-server.listen(port, () => {
-  console.log(`App is listening on port ${port}`)
-});
-```
 
 ==== to generate self-signed certificate
 openssl genrsa -out private.key 2048
