@@ -1,6 +1,8 @@
 name: OctaneIntegration
 # Events the integration should be triggered on
 on:
+  workflow_dispatch:
+   types: [push]
   pull_request:
     types: [opened, edited, closed, reopened]
   workflow_run:
