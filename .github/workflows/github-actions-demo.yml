@@ -13,7 +13,7 @@ env:
 jobs:
   octane_integration_job:
     # List of runner tags
-    runs-on: [self-hosted]
+    runs-on: ubuntu-latest
     name: OctaneIntegration#${{github.event.action}}#${{github.event.workflow_run.id}}
     steps:
       - name: GitHub Actions ALM Octane Integration
