@@ -2,12 +2,11 @@ name: OctaneIntegration
 # Events the integration should be triggered on
 on:
   workflow_dispatch:
-   types: [push]
   pull_request:
     types: [opened, edited, closed, reopened]
   workflow_run:
     # List of workflows to integrate with ALM Octane
-    workflows: [CI]
+    workflows: [github-actions-demo]
     types: [requested, completed]
 # Node configuration for allowing HTTPS requests
 env: 
