@@ -1,9 +1,7 @@
 name: OctaneIntegration
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+run-name: ${{ github.actor }} is testing out GitHub Actions ALM Octane Integration
 on: [push]
-# Node configuration for allowing HTTPS requests
-env: 
-  NODE_TLS_REJECT_UNAUTHORIZED: 0
+
 jobs:
   octane_integration_job:
     # List of runner tags
@@ -17,7 +15,7 @@ jobs:
         # Config parameters for the integration
         with:
           # ALM Octane connection data
-          octaneUrl: 'almoctane-ams.saas.microfocus.com'
+          octaneUrl: 'almoctane-amsX.saas.microfocus.com'
           octaneSharedSpace: 468005
           octaneWorkspace: 8001
           octaneClientId: ${{secrets.ALM_OCTANE_CLIENT_ID}}
