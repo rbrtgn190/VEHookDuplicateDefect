@@ -14,7 +14,6 @@ jobs:
         id: gitHubActionsIntegration
         # Config parameters for the integration
         with:
-          node-version: '20'
           # ALM Octane connection data
           octaneUrl: 'almoctane-ams.saas.microfocus.com'
           octaneSharedSpace: 468005
