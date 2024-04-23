@@ -15,9 +15,9 @@ jobs:
         # Config parameters for the integration
         with:
           # ALM Octane connection data
-          octaneUrl: 'almoctane-amsX.saas.microfocus.com'
+          octaneUrl: 'almoctane-ams.saas.microfocus.com'
           octaneSharedSpace: 468005
-          octaneWorkspace: 8001
+          octaneWorkspace: xx8001
           octaneClientId: ${{secrets.ALM_OCTANE_CLIENT_ID}}
           octaneClientSecret: ${{secrets.ALM_OCTANE_CLIENT_SECRET}}
           # Automatically provided GitHub token
