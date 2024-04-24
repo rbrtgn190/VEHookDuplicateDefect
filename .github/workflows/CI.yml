@@ -1,5 +1,5 @@
-name: CI
-run-name: ${{ github.actor }} CIRun
+name: VEHookDuplicateDefect
+run-name: ${{ github.actor }} VEHookDuplicateDefect CI Run
 on: [push]
 jobs:
   Explore-GitHub-Actions:
