@@ -1,11 +1,12 @@
+name: OctaneIntegration
 # Events the integration should be triggered on
 on:
-  pull_request:
-    types: [opened, edited, closed, reopened]
   workflow_run:
     # List of workflows to integrate with ALM Octane
     workflows: [CI]
     types: [requested, completed]
+  pull_request:
+    types: [opened, edited, closed, reopened]
 
 jobs:
   octane_integration_job:
@@ -21,7 +22,7 @@ jobs:
         # Config parameters for the integration
         with:
           # ALM Octane connection data
-          octaneUrl: 'almoctane-ams.saas.microfocus.com'
+          octaneUrl: 'http://almoctane-ams.saas.microfocus.com'
           octaneSharedSpace: 468005
           octaneWorkspace: 8001
           octaneClientId: ${{secrets.ALM_OCTANE_CLIENT_ID}}
