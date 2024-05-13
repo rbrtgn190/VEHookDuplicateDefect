@@ -1,0 +1,36 @@
+name: OctaneIntegration
+# Events the integration should be triggered on
+on:
+  workflow_run:
+    # List of workflows to integrate with ALM Octane
+    workflows: [VEHookDuplicateDefect]
+    types: [requested, completed]
+  pull_request:
+    types: [opened, edited, closed, reopened]
+  workflow_dispatch:
+
+jobs:
+  octane_integration_job:
+    # List of runner tags
+    runs-on: ubuntu-latest
+    name: OctaneIntegration#
+    steps:
+      - name: GitHub Actions ALM Octane Integration
+        # Reference to our public GitHub action
+        #uses: MicroFocus/alm-octane-github-actions-integration@v23.3.0
+        uses: rbrtgn190/FORK_alm-octane-github-actions-integration@v0.1-alpha            
+        id: gitHubActionsIntegration
+        # Config parameters for the integration
+        with:
+          # ALM Octane connection data
+          octaneUrl: 'http://almoctane-ams.saas.microfocus.com'
+          octaneSharedSpace: 468005
+          octaneWorkspace: 8001
+          octaneClientId: ${{secrets.ALM_OCTANE_CLIENT_ID}}
+          octaneClientSecret: ${{secrets.ALM_OCTANE_CLIENT_SECRET}}
+          # Automatically provided GitHub token
+          githubToken: ${{secrets.GITHUB_TOKEN}}
+          # The url that the CI Server in ALM Octane will point to
+          serverBaseUrl: https://github.com/rbrtgn190/VEHookDuplicateDefect
+          # Pattern for identifying JUnit style report files for test result injection in ALM Octane
+          unitTestResultsGlobPattern: "**/*.xml"
