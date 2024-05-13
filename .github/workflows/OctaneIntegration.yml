@@ -23,7 +23,7 @@ jobs:
         # Config parameters for the integration
         with:
           # ALM Octane connection data
-          octaneUrl: 'http://almoctane-ams.saas.microfocus.com'
+          octaneUrl: 'https://almoctane-ams.saas.microfocus.com'
           octaneSharedSpace: 468005
           octaneWorkspace: 8001
           octaneClientId: ${{secrets.ALM_OCTANE_CLIENT_ID}}
