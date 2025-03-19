@@ -33,5 +33,6 @@ jobs:
           githubToken: ${{secrets.GITHUB_TOKEN}}
           # The url that the CI Server in ALM Octane will point to
           serverBaseUrl: https://github.com/rbrtgn190/VEHookDuplicateDefect
+          pipelineNamePattern: '${workflow_name}'
           # Pattern for identifying JUnit style report files for test result injection in ALM Octane
-          unitTestResultsGlobPattern: "**/*.xml"
+          unitTestResultsGlobPattern: "**/*.xml"      
