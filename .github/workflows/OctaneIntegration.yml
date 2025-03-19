@@ -18,7 +18,7 @@ jobs:
     steps:
       - name: GitHub Actions ALM Octane Integration
         # Reference to our public GitHub action
-        uses: MicroFocus/alm-octane-github-actions-integration@v23.3.0
+        uses: MicroFocus/alm-octane-github-actions-integration@v25.1.1
         #uses: rbrtgn190/FORK_alm-octane-github-actions-integration@v0.1-alpha            
         id: gitHubActionsIntegration
         # Config parameters for the integration
